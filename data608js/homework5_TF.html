@@ -1,0 +1,104 @@
+<html>
+
+<head><title>CUNY DATA 608: Homework #5</title>
+<style>
+    table, caption, th, td {
+        border: 1px solid black;
+    }
+    
+    caption, th, td {
+        padding: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>CUNY DATA 608: Homework #5</h1>
+<h2>by Tyler Frankenberg</h2>
+
+<br>
+
+<h3>Question 1:</h3>
+
+<script type="text/javascript">
+    
+    document.write('<p><b>Create a function to reverse any word that you type in. This can be typed into either an input box or an alert box, and then print the result in a box or on the webpage.</b></p>');
+
+    function reverseString(str) { 
+        var splitString = str.split("");
+        var reverseArray = splitString.reverse();
+        var joinArray = reverseArray.join(""); 
+
+        return(joinArray); 
+        }
+    // function citation: https://www.freecodecamp.org/news/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb/
+    
+    function calc1(){
+        var t = document.getElementById("target1");
+        t.innerHTML = reverseString(document.getElementById("string").value);
+        }
+
+</script>
+
+<p>
+<form>
+<input id="string" type="text" size="32">
+<input type="button" value="reverse" onClick="calc1();">
+</form>
+</p>
+
+<div id="target1"></div> 
+
+<br>
+
+
+<h3>Question 2:</h3>
+
+<script type="text/javascript">
+    
+document.write('<p><b>Create a function that takes an input number, and prints a table with the first 20 multiples of the number, in order 5x4</b></p><br>');
+
+function multiples(num){
+    var mult_array = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    for (var i=0; i<20; i++) {
+        mult_array[i] = +num * (i + 1);
+    }
+
+    var mult_table = "<table><caption><b>Multiples of " + num + "</b></caption>"
+        mult_table += "<tr><td>" + mult_array[0] + "</td><td>" + mult_array[1] + "</td><td>" + mult_array[2] + 
+                     "</td><td>" + mult_array[3] + "</td><td>" + mult_array[4] + "</td></tr>";
+        mult_table += "<tr><td>" + mult_array[5] + "</td><td>" + mult_array[6] + "</td><td>" + mult_array[7] +
+                     "</td><td>" + mult_array[8] + "</td><td>" + mult_array[9] + "</td></tr>";
+        mult_table += "<tr><td>" + mult_array[10] + "</td><td>" + mult_array[11] + "</td><td>" + mult_array[12] +
+                     "</td><td>" + mult_array[13] + "</td><td>" + mult_array[14] + "</td></tr>";
+        mult_table += "<tr><td>" + mult_array[15] + "</td><td>" + mult_array[16] + "</td><td>" + mult_array[17] +
+                     "</td><td>" + mult_array[18] + "</td><td>" + mult_array[19] + "</td></tr>";
+        mult_table +="</table>";
+    
+    return mult_table
+
+// function citation: https://stackoverflow.com/a/16126408
+};
+
+
+function calc2(){
+    var t = document.getElementById("target2");
+    t.innerHTML = multiples(document.getElementById("num").value);
+};
+
+</script>
+
+<p>
+<form>
+    <input id="num" type="number" size="5">
+    <input type="button" value="calculate" onClick="calc2();">
+</form>
+</p>
+
+<div id="target2"></div> 
+
+</body>
+
+</html>
